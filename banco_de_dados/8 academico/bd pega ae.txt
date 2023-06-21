@@ -1,0 +1,26 @@
+# Q 18
+select max(nota) from boletim;
+
+# Q 19
+select iddisciplina, prontuario, nota from boletim order by nota limit 1;
+
+# Q 20
+select iddisciplina, prontuario, nota from boletim order by nota desc limit 2;
+
+# Q 21
+insert into aluno values
+(234, "Ana Maria Braga", "Av das Nações Unidas,100", 121212, "Matemática"),		# esta entrada não é válida, pois o curso "Matemática" não está presente na tabela "Curso"
+(12345678, "Carolina", "Rua D. Aguirre,300", 123456, "ADS"); 					# esta entrada não é válida por 2 razões: a chave-primária já foi utilizada, e "Matemática" não está presente na tabela "Curso"
+
+	# é possível arrumar de duas formas: ADICIONAR na tabela CURSO o curso matemática, ou alterar os valores dos alunos para um dos cursos disponíveis
+
+# alterando a tabela:
+
+alter table curso modify coordenador Varchar(20) null;	# permitir que o coordenador do curso ser NULL
+
+insert into curso values
+("MAT", "Matemática", NULL);		# adicionar MATEMÁTICA nos cursos disponíveis
+
+insert into aluno values
+(234, "Ana Maria Braga", "Av das Nações Unidas,100", 121212, "MAT"),		# inseri o curso com o código MAT, e mudei a chave-primária de Carolina de 12345678 para 12345674
+(12345674, "Carolina", "Rua D. Aguirre,300", 123456, "MAT"); 
