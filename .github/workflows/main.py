@@ -6,7 +6,6 @@
 #   	Mauro Sérgio Jircik A. M. R. L. Pereira    BP3032116
 #		Victor Gomes da Cruz					   BP303285X
 
-
 import schema
 from curso import Curso
 from disciplina import Disciplina
